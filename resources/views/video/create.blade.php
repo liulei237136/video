@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/videos" method="POST">
+<form action="/videos" method="POST" enctype="multipart/form-data">
     @csrf
     <div>
         <input type="text" name="title" placeholder="input the video title" required>
@@ -19,6 +19,13 @@
     <div>
         <button type="submit">Submit</button>
     </div>
+
+    @error('name')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+    @error('video')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
 </form>
 </body>
 </html>

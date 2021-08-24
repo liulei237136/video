@@ -37,7 +37,7 @@ return [
 
         'videos_disk' => [
             'driver' => env('VIDEOS_DISK_DRIVER','local'),
-            'root' => storage_path('videos_disk'),
+            'root' => storage_path(''),
         ],
 
         'streamable_videos' => [
