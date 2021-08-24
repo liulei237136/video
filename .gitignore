@@ -2,6 +2,9 @@
 /public/hot
 /public/storage
 /storage/*.key
+/storage/public/app/streamable_videos
+/storage/public/app/downloadable_videos
+/storage/videos
 /vendor
 .env
 .env.backup
