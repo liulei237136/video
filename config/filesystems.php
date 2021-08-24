@@ -40,6 +40,16 @@ return [
             'root' => storage_path('videos_disk'),
         ],
 
+        'streamable_videos' => [
+            'driver' => env('VIDEOS_DISK_DRIVER','local'),
+            'root' => storage_path('public/app/streamable_videos'),
+        ],
+
+        'downloadable_videos' => [
+            'driver' => env('VIDEOS_DISK_DRIVER','local'),
+            'root' => storage_path('public/app/downloadable_videos'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

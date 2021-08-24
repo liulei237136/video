@@ -9,6 +9,10 @@ use App\Models\Video;
 
 class VideoController extends Controller
 {
+    public function create(){
+        return view('video/create');
+    }
+
     public function store(StoreVideoRequest $request)
     {
         $video = Video::create([
