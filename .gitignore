@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /storage/app/public
+/storage/videos
 /vendor
 .env
 .env.backup
