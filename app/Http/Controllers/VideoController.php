@@ -13,8 +13,25 @@ class VideoController extends Controller
         return view('video/show', compact('video'));
     }
     public function index(){
-        $videos = Video::all();
-        return view('video/index', compact('videos'));
+        $query = request()->search;
+
+//        $videos = collect();
+
+//        $channels = collect();
+
+        if ($query) {
+            $videos = Video::where('title', 'LIKE', "%{$query}%")->paginate(5, ['*'], 'video_page');
+//            $videos = Video::where('title', 'LIKE', "%{$query}%")->orWhere('description', 'LIKE', "%{$query}%")->paginate(5, ['*'], 'video_page');
+//            $channels = Channel::where('name', 'LIKE', "%{$query}%")->orWhere('description', 'LIKE', "%{$query}%")->paginate(5, ['*'], 'channel_page');
+        }else{
+            $videos = Video::paginate(5, ['*'], 'video_page');
+        }
+
+
+        return view('video.index')->with([
+            'videos' => $videos,
+//            'channels' => $channels
+        ]);
     }
 
     public function create(){
