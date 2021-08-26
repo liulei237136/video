@@ -9,6 +9,14 @@ use App\Models\Video;
 
 class VideoController extends Controller
 {
+    public function show(Video $video){
+        return view('video/show', compact('video'));
+    }
+    public function index(){
+        $videos = Video::all();
+        return view('video/index', compact('videos'));
+    }
+
     public function create(){
         return view('video/create');
     }
@@ -23,10 +31,11 @@ class VideoController extends Controller
         ]);
 
         $this->dispatch(new ConvertVideoForDownloading($video));
-//        $this->dispatch(new ConvertVideoForStreaming($video));
+        $this->dispatch(new ConvertVideoForStreaming($video));
 
-        return response()->json([
-            'id' => $video->id,
-        ], 201);
+//        return response()->json([
+//            'id' => $video->id,
+//        ], 201);
+        return redirect('/videos');
     }
 }

@@ -15,4 +15,12 @@ class Video extends Model
     ];
 
     protected $guarded = [];
+
+    public function getStreamablePathAttribute(){
+        return url('storage/streamable_videos').'/' . $this->id . '.m3u8';
+    }
+
+    public function getDownalbePathAtrribute(){
+        return url('storage/downable_videos').'/' . $this->id . '.mp4';
+    }
 }
