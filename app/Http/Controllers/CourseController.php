@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
+
+    public function show(Course $course){
+        return view('courses.show', compact('course'));
+    }
+
     public function store(Request $request){
-//        $table->id();
-//        $table->string('title');
-//        $table->text('description')->nullable();
-//        $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-//        $table->string('image')->nullable();
-//        $table->timestamps();
         $request->validate([
             'title' => ['required', new SpamFree],
             'description' => [new SpamFree],
@@ -29,7 +28,7 @@ class CourseController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()
-            ->with('flash', __('Your course was created'));
+        return redirect($course->path())->with('flash', __('Your course was created'));
     }
+
 }

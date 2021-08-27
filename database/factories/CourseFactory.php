@@ -23,7 +23,7 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name(),
+            'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
             'user_id' => User::factory(),
             'image' => 'https://dummyimage.com/600x400/000/fff'

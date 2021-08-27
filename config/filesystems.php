@@ -35,6 +35,18 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root'   => public_path('media'),
+            'url'    => env('APP_URL').'/media',
+        ],
+
+        'media2' => [
+            'driver' => 'local',
+            'root'   => public_path('media2'),
+            'url'    => env('APP_URL').'/media2',
+        ],
+
         'videos_disk' => [
             'driver' => env('VIDEOS_DISK_DRIVER','local'),
             'root' => storage_path(''),

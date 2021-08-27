@@ -15,6 +15,7 @@ class IndexPageTest extends TestCase
     {
         $course = Course::factory()->create();
         $response = $this->get('/');
+        $response->assertSuccessful();
         $response->assertSee($course->name);
     }
 }
